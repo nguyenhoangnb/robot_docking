@@ -1,0 +1,8 @@
+prefix=/home/hoang/robot_da/install
+
+Name: robot_docking
+Description: Description of robot_docking
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

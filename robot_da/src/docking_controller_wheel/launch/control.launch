@@ -1,0 +1,22 @@
+<launch>
+    <!-- Load the ROS parameters from the YAML configuration files -->
+    <rosparam file="$(find joint_state_controller)/joint_state_controller.yaml" command="load"/>
+    <rosparam file="$(find docking_controller_wheel)/config/joint_controller.yaml" command="load"/>
+    <arg name="model" default="$(find robot_docking)/urdf/robot_docking.urdf.xacro"/>
+
+    <!-- Start the robot_state_publisher to publish joint states -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+          respawn="false" output="screen" />
+
+    <!-- Load the robot description -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+
+    <!-- Start the controller manager -->
+    <node name="controller_manager" pkg="controller_manager" type="spawner" 
+      output="screen" respawn="false" args="joint_state_controller wheel_front_controller wheel_left_controller wheel_right_controller"/>
+
+    <!-- Launch the test controller node (custom controller) -->
+    <node pkg="docking_controller_wheel" type="testcontroller.py" name="test_controller" respawn="true" output="screen">
+  
+    </node>
+</launch>

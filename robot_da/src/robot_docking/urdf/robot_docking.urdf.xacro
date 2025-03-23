@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="robot_docking" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find robot_docking)/urdf/robot_properties.xacro" />
+  <xacro:include filename="$(find robot_docking)/urdf/common_properties.xacro" />
+
+  <link name="basefoot_link" />
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.000289864579681387 -0.000718230891326076 0.047950882279495"
+        rpy="0 0 0" />
+      <mass
+        value="0.331171188980549" />
+      <inertia
+        ixx="0.00111418343424523"
+        ixy="-5.44568062251066E-06"
+        ixz="-2.02304877726191E-06"
+        iyy="0.00110250630250282"
+        iyz="2.54448430715081E-06"
+        izz="0.0014284323191472" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="basefoot_joint" type="fixed">
+    <parent link="basefoot_link"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.02" rpy="0 0 0"/>
+  </joint>
+
+  <link
+    name="front_wheel_link">
+    <inertial>
+      <origin
+        xyz="-0.00324040376374836 4.89031228385201E-06 1.42076747643854E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00618073560320388" />
+      <inertia
+        ixx="5.71253232809819E-07"
+        ixy="-1.0358180535669E-13"
+        ixz="-4.14569771104536E-14"
+        iyy="2.94198592880854E-07"
+        iyz="2.98405896563239E-10"
+        izz="2.93572446838264E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/front_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/front_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.0466666666666667 -0.00020526372785272 0.00799951222526741"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_wheel_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      effort="0.38195"
+      velocity="31.416" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="0.00161977052337231 -0.00280652102287197 5.06810032584182E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00618073560320388" />
+      <inertia
+        ixx="3.62903069155732E-07"
+        ixy="-1.2029102307139E-07"
+        ixz="5.57850139767036E-14"
+        iyy="5.01803178258457E-07"
+        iyz="-9.66224794778852E-14"
+        izz="2.94318025114749E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0235052367476054 0.0403152703607692 0.00799493189967413"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="0.500000000000001 -0.866025403784438 0" />
+    <limit
+      effort="0.38195"
+      velocity="31.416" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="0.00171747127062813 0.00296472511820606 9.06473329523316E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00618073560320387" />
+      <inertia
+        ixx="3.63503429118346E-07"
+        ixy="1.19944512404821E-07"
+        ixz="1.97017670949224E-10"
+        iyy="5.02003174324161E-07"
+        iyz="-1.13712984044728E-10"
+        izz="2.93517669086433E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0231647060085328 -0.0405118758746402 0.0080000601855697"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel_link" />
+    <axis
+      xyz="0.500000000000001 0.866025403784438 0" />
+    <limit
+      effort="0.38195"
+      velocity="31.416" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="gear_parent_link">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 2.77555756156289E-17 -0.0025"
+        rpy="0 0 0" />
+      <mass
+        value="0.00452264984337941" />
+      <inertia
+        ixx="2.80265403074513E-07"
+        ixy="-5.9557004103818E-23"
+        ixz="5.29395592033938E-23"
+        iyy="2.80265403074513E-07"
+        iyz="-2.16721320488893E-22"
+        izz="5.05950422035626E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/gear_parent_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/gear_parent_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gear_parent_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0416430582439057 -0.0236699324057903 0.051"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gear_parent_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0.38195"
+      velocity="31.416" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="gear_child_link">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 -1.38777878078145E-17 -0.00782600749720002"
+        rpy="0 0 0" />
+      <mass
+        value="0.016442529376022" />
+      <inertia
+        ixx="4.08944526124647E-06"
+        ixy="4.10281583826302E-22"
+        ixz="0"
+        iyy="4.08944526124647E-06"
+        iyz="-7.94093388050907E-23"
+        izz="8.02453487611104E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/gear_child_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/gear_child_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gear_child_joint"
+    type="continuous">
+    <origin
+      xyz="0 0 0.0560000000000001"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gear_child_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0.7639"
+      velocity="15.708" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="docking_front_link">
+    <inertial>
+      <origin
+        xyz="-0.00116198061453995 -4.76959860495896E-11 -0.00478195632315787"
+        rpy="0 0 0" />
+      <mass
+        value="0.0143403454206615" />
+      <inertia
+        ixx="7.00800168489498E-07"
+        ixy="-7.09565236577912E-15"
+        ixz="-7.90343014493252E-08"
+        iyy="2.29560460356564E-05"
+        iyz="-3.24413152930276E-15"
+        izz="2.33418727819674E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/docking_front_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.92156862745098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/docking_front_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="docking_front_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.00399789853902596 0 0.0687000000000002"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="docking_front_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-0.015"
+      upper="0.015"
+      effort="509"
+      velocity="0.0236" />
+    <dynamics
+      damping="10"
+      friction="10" />
+  </joint>
+  <link
+    name="docking_size_link">
+    <inertial>
+      <origin
+        xyz="1.40778055879309E-10 -0.00351477760970662 -0.00156804367684214"
+        rpy="0 0 0" />
+      <mass
+        value="0.0143403454206615" />
+      <inertia
+        ixx="2.29560460356564E-05"
+        ixy="-7.09564727696399E-15"
+        ixz="3.24413364688513E-15"
+        iyy="7.00800168489502E-07"
+        iyz="7.90343014493306E-08"
+        izz="2.33418727819674E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/docking_size_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.92156862745098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_docking/meshes/docking_size_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="docking_size_joint"
+    type="prismatic">
+    <origin
+      xyz="0 -0.01490951511319 0.0623500000000002"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="docking_size_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.03"
+      upper="0"
+      effort="509"
+      velocity="0.0236" />
+    <dynamics
+      damping="1"
+      friction="1" />
+  </joint>
+</robot>

@@ -1,0 +1,8 @@
+prefix=/home/hoang/robot_da/install
+
+Name: docking_controller_wheel
+Description: Description of docking_controller_wheel
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: std_msgs geometry_msgs

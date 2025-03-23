@@ -1,0 +1,11 @@
+wheel_front_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: front_wheel_joint
+
+wheel_left_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: left_wheel_joint
+
+wheel_right_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: right_wheel_joint

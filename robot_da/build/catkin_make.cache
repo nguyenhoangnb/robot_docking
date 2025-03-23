@@ -1,0 +1,2 @@
+docking_controller_wheel:robot_docking
+-DCATKIN_DEVEL_PREFIX=/home/hoang/robot_da/devel -DCMAKE_INSTALL_PREFIX=/home/hoang/robot_da/install -G Unix Makefiles

@@ -21,12 +21,12 @@ class SimpleController(object):
         rospy.loginfo("Publishing motor commands: %.2f", speed)
         self.right_cmd_pub.publish(speed)
         self.left_cmd_pub.publish(speed)
-        # self.front_cmd_pub.publish(speed)
+        self.front_cmd_pub.publish(speed)
 
     def run(self):
         # Main loop to control the robot
         while not rospy.is_shutdown():
-            self.control_motor(3)  # Modify the speed here if needed
+            self.control_motor(2)  # Modify the speed here if needed
             self.rate.sleep()  # Sleep to maintain loop rate
 
 if __name__ == "__main__":
